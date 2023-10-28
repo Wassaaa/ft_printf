@@ -1,0 +1,13 @@
+*.o
+*.dSYM/
+tmp/
+a.out
+*.swp
+libft.a
+main.c
+main_b.c
+.vscode/
+libft_tester/
+readme.md
+.DS_Store
+*.gch
