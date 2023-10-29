@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:53:12 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/29 19:54:09 by aklein           ###   ########.fr       */
+/*   Updated: 2023/10/29 20:32:30 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,26 @@ int	get_width(t_print *print, t_flags *flags, size_t i)
 	return (i);
 }
 
+int	get_perc(t_print *print, t_flags *flags, size_t i)
+{
+	int perc;
+
+	i++;
+	perc = 0;
+	if (print->frm[i] == '*')
+	{
+		flags->perc = va_arg(print->ap, int);
+		return (++i);
+	}
+	while (ft_isdigit(print->frm[i]))
+	{
+		perc = (perc * 10) + (print->frm[i] - '0');
+		i++;	
+	}
+	flags->perc = perc;
+	return (i);
+}
+
 int	parse_flags(t_print *print, t_flags *flags)
 {
 	size_t	i;
@@ -66,8 +86,12 @@ int	parse_flags(t_print *print, t_flags *flags)
 			flags->hashtag = 1;
 		else if (print->frm[i] == '0')
 			flags->pad_c = '0';
-		else
+		else if (print->frm[i] == '-')
+			flags->justify = 1;
+		else if (print->frm[i] == '*' || ft_isdigit((int)print->frm[i]))
 			i = get_width(print, flags, i) - 1;
+		else if (print->frm[i] == '.')
+			i = get_perc(print, flags, i);
 		i++;
 	}
 	if (print->spec_i == i)

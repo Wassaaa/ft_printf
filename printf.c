@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:25:19 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/29 20:09:05 by aklein           ###   ########.fr       */
+/*   Updated: 2023/10/29 20:35:27 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ int	ft_printf(const char *frm, ...)
 
 int	main(void)
 {
-	ft_printf("testing%   05d okay\n", -10);
-	printf("testing%   05d okay\n", -10);
-	printf("testing%+08c okay\n", 'A');
+	ft_printf("testing%-05.7d okay\n", -10);
+	// printf("testing%   05d okay\n", -10);
+	// printf("testing%+08c okay\n", 'A');
 	// printf("%d\n", 5);
 }

@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:51:49 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/29 19:58:53 by aklein           ###   ########.fr       */
+/*   Updated: 2023/10/29 20:34:46 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	init_flags(t_flags *flags)
 	flags->space_sign = 0;
 	flags->pad_c = ' ';
 	flags->width = 0;
+	flags->perc = 0;
+	flags->justify = 0;
 }
 
 void	init_print(t_print *print)
