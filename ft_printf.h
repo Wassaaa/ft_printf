@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 22:50:24 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/29 05:23:01 by aklein           ###   ########.fr       */
+/*   Updated: 2023/10/29 20:04:43 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdarg.h>
 
 # define SPECS "cspdiuxX%"
-# define FLAGS "+ #0*"
+# define FLAGS "+ #0*-."
 
 typedef struct s_print
 {
@@ -38,5 +38,16 @@ typedef struct s_flags
 	char		pad_c;
 	int			width;
 }				t_flags;
+
+size_t	count_digits(int n);
+int		abs_val(int n);
+void	init_flags(t_flags *flags);
+void	init_print(t_print *print);
+int		parse_spec(t_print *print);
+int		get_width(t_print *print, t_flags *flags, size_t i);
+int		parse_flags(t_print *print, t_flags *flags);
+int		abs_val(int n);
+size_t	count_digits(int n);
+
 
 #endif
