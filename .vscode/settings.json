@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"cstdarg": "c",
+		"libft.h": "c",
+		"stdarg.h": "c"
+	}
+}
