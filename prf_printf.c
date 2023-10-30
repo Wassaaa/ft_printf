@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:25:19 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/30 19:06:47 by aklein           ###   ########.fr       */
+/*   Updated: 2023/10/30 19:31:01 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,10 @@ int	main(void)
 	int std2 = printf("testing %p okay\n", &my_int);
 	int ft3 = ft_printf("testing %u okay\n", UINT_MAX);
 	int std3 = printf("testing %u okay\n", UINT_MAX);
+	int ft4 = ft_printf("testing %x okay\n", UINT_MAX);
+	int std4 = printf("testing %X okay\n", -200);
 
-	printf("%d\n%d\n%d\n%d\n%d\n%d\n", ft1, std1, ft2, std2, ft3, std3);
+	printf("%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n", ft1, std1, ft2, std2, ft3, std3, ft4, std4);
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 02:17:04 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/30 04:10:38 by aklein           ###   ########.fr       */
+/*   Updated: 2023/10/30 19:35:17 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ int	print_p(t_print *print)
 	ptr = va_arg(print->ap, unsigned long);
 	ft_putstr_fd("0x", print->fd);
 	print->printed += 2;
-	print->printed += ft_putnbr_base_ul_fd(ptr, HEXBASE, print->fd);
+	print->printed += ft_putnbr_base_ul_fd(ptr, HEXBASELOWER, print->fd);
 	return (1);
 }
