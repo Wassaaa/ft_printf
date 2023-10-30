@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 00:58:39 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/30 02:55:20 by aklein           ###   ########.fr       */
+/*   Updated: 2023/10/30 03:10:00 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,5 @@ int				print_d(t_print *print);
 int				print_u(t_print *print);
 int				print_x(t_print *print);
 int				print_xx(t_print *print);
-int				print_percent(t_print *print);
 
 #endif

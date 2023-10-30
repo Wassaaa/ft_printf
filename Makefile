@@ -8,7 +8,6 @@ SRCS =	prf_printf.c \
 		prf_print_u.c \
 		prf_print_x.c \
 		prf_print_xx.c \
-		prf_print_percent.c \
 		prf_parse_spec.c \
 		prf_init_print.c \
 		ft_abs.c \

@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 02:16:47 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/30 02:23:54 by aklein           ###   ########.fr       */
+/*   Updated: 2023/10/30 03:13:37 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 int	print_s(t_print *print)
 {
-	(void)print;
-	return (0);
+	char *my_str;
+
+	my_str = va_arg(print->ap, char *);
+	ft_putstr_fd(my_str, print->fd);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:25:19 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/30 03:00:32 by aklein           ###   ########.fr       */
+/*   Updated: 2023/10/30 03:14:36 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	print_next(t_print *print)
 	}
 	return (0);
 }
-
+// none of those should move the print->frm pointer
 int	print_spec(t_print *print)
 {
 	if (print->spec == 'c')
@@ -41,7 +41,7 @@ int	print_spec(t_print *print)
 	if (print->spec == 'X')
 		print_xx(print);
 	if (print->spec == '%')
-		print_percent(print);
+		ft_putchar_fd('%', print->fd);
 	return (1);
 }
 
@@ -72,8 +72,8 @@ int	ft_printf(const char *frm, ...)
 
 int	main(void)
 {
-	ft_printf("testing%d okay%cmoremore\n", -10, 'c');
-	printf("testing%d okay%cmoremore\n", -10, 'c');
+	ft_printf("%%testing%d okay%cmore%smore\n", -10, 'c', " tests ");
+	printf("%%testing%d okay%cmore%smore\n", -10, 'c', " tests ");
 	ft_printf("testing%i okay\n", -10);
 	printf("testing%d okay\n", -10);
 
