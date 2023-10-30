@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:25:19 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/30 04:30:53 by aklein           ###   ########.fr       */
+/*   Updated: 2023/10/30 19:06:47 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int	ft_printf(const char *frm, ...)
 }
 
 #include <stdio.h>
+#include <limits.h>
 
 int	main(void)
 {
@@ -82,8 +83,10 @@ int	main(void)
 	int std1 = printf("%%testing%d okay%cmore%smore\n", -10, 'c', " tests ");
 	int ft2 = ft_printf("testing %p okay\n", &my_int);
 	int std2 = printf("testing %p okay\n", &my_int);
+	int ft3 = ft_printf("testing %u okay\n", UINT_MAX);
+	int std3 = printf("testing %u okay\n", UINT_MAX);
 
-	printf("%d\n%d\n%d\n%d\n", ft1, std1, ft2, std2);
+	printf("%d\n%d\n%d\n%d\n%d\n%d\n", ft1, std1, ft2, std2, ft3, std3);
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 00:58:39 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/30 04:24:43 by aklein           ###   ########.fr       */
+/*   Updated: 2023/10/30 19:10:27 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ int				print_u(t_print *print);
 int				print_x(t_print *print);
 int				print_xx(t_print *print);
 int				ft_putnbr_base_ul_fd(unsigned long nbr, char *base, int fd);
-void			ft_putnbr_ul_fd(unsigned long n, int fd);
+int				ft_putnbr_ul_fd(unsigned long n, int fd);
 
 #endif
