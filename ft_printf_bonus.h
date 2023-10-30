@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 22:50:24 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/30 01:02:07 by aklein           ###   ########.fr       */
+/*   Updated: 2023/10/30 03:52:08 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ int				parse_flags(t_print *print, t_flags *flags);
 int				abs_val(int n);
 size_t			count_digits(int n);
 int				print_d(t_print *print, t_flags *flags);
+void			ft_printnbr_base_fd(unsigned long nbr, char *base, int fd);
 
 #endif

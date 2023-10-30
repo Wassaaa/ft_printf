@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:25:19 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/30 03:14:36 by aklein           ###   ########.fr       */
+/*   Updated: 2023/10/30 04:30:53 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ int	print_spec(t_print *print)
 	if (print->spec == 'X')
 		print_xx(print);
 	if (print->spec == '%')
+	{
 		ft_putchar_fd('%', print->fd);
+		print->printed++;
+	}
 	return (1);
 }
 
@@ -60,7 +63,7 @@ int	ft_printf(const char *frm, ...)
 		{
 			print.frm += print.spec_i + 1;
 			print_spec(&print);
-			init_print(&print);
+			reset_print(&print);
 			continue ;
 		}
 	}
@@ -72,10 +75,15 @@ int	ft_printf(const char *frm, ...)
 
 int	main(void)
 {
-	ft_printf("%%testing%d okay%cmore%smore\n", -10, 'c', " tests ");
-	printf("%%testing%d okay%cmore%smore\n", -10, 'c', " tests ");
-	ft_printf("testing%i okay\n", -10);
-	printf("testing%d okay\n", -10);
+	int my_int;
+
+	my_int = 55;
+	int ft1 = ft_printf("%%testing%d okay%cmore%smore\n", -10, 'c', " tests ");
+	int std1 = printf("%%testing%d okay%cmore%smore\n", -10, 'c', " tests ");
+	int ft2 = ft_printf("testing %p okay\n", &my_int);
+	int std2 = printf("testing %p okay\n", &my_int);
+
+	printf("%d\n%d\n%d\n%d\n", ft1, std1, ft2, std2);
 
 	return (0);
 }

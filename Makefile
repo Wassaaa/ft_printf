@@ -12,6 +12,8 @@ SRCS =	prf_printf.c \
 		prf_init_print.c \
 		ft_abs.c \
 		count_digits.c \
+		ft_putnbr_base_ul_fd.c \
+		ft_putnbr_ul_fd.c \
 
 
 

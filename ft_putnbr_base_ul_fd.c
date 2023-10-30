@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prf_print_s.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr_base_ul_fd.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 02:16:47 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/30 04:29:38 by aklein           ###   ########.fr       */
+/*   Created: 2023/10/30 03:39:12 by aklein            #+#    #+#             */
+/*   Updated: 2023/10/30 04:10:58 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_s(t_print *print)
+static size_t	print_base(unsigned long nbr, size_t len, char *base, int fd)
 {
-	char *my_str;
+	static size_t	digits = 0;
 
-	my_str = va_arg(print->ap, char *);
-	ft_putstr_fd(my_str, print->fd);
-	print->printed += ft_strlen(my_str);
-	return (1);
+	if (nbr >= len)
+		print_base(nbr / len, len, base, fd);
+	ft_putchar_fd(base[nbr % len], fd);
+	digits++;
+	return (digits);
+}
+
+int	ft_putnbr_base_ul_fd(unsigned long nbr, char *base, int fd)
+{
+	size_t base_len;
+
+	base_len = ft_strlen(base);
+	return (print_base(nbr, base_len, base, fd));
 }
