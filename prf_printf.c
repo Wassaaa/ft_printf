@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.c                                           :+:      :+:    :+:   */
+/*   prf_printf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:25:19 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/29 20:35:27 by aklein           ###   ########.fr       */
+/*   Updated: 2023/10/30 03:00:32 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft/libft.h"
 
 int	print_next(t_print *print)
 {
@@ -25,21 +24,33 @@ int	print_next(t_print *print)
 	return (0);
 }
 
-int	print_spec(t_print *print, t_flags *flags)
+int	print_spec(t_print *print)
 {
-	if (print->spec == 'd')
-		print_d(print, flags);
+	if (print->spec == 'c')
+		print_c(print);
+	if (print->spec == 's')
+		print_s(print);
+	if (print->spec == 'p')
+		print_p(print);
+	if (print->spec == 'd' || print->spec == 'i')
+		print_d(print);
+	if (print->spec == 'u')
+		print_u(print);
+	if (print->spec == 'x')
+		print_x(print);
+	if (print->spec == 'X')
+		print_xx(print);
+	if (print->spec == '%')
+		print_percent(print);
 	return (1);
 }
 
 int	ft_printf(const char *frm, ...)
 {
 	t_print	print;
-	t_flags	flags;
 
 	print.frm = frm;
 	init_print(&print);
-	init_flags(&flags);
 	va_start(print.ap, frm);
 	while (*print.frm)
 	{
@@ -47,12 +58,10 @@ int	ft_printf(const char *frm, ...)
 			continue ;
 		if (parse_spec(&print))
 		{
-			if (parse_flags(&print, &flags))
-			{
-				print.frm += print.spec_i + 1;
-				print_spec(&print, &flags);
-				continue ;
-			}
+			print.frm += print.spec_i + 1;
+			print_spec(&print);
+			init_print(&print);
+			continue ;
 		}
 	}
 	va_end(print.ap);
@@ -63,8 +72,10 @@ int	ft_printf(const char *frm, ...)
 
 int	main(void)
 {
-	ft_printf("testing%-05.7d okay\n", -10);
-	// printf("testing%   05d okay\n", -10);
-	// printf("testing%+08c okay\n", 'A');
-	// printf("%d\n", 5);
+	ft_printf("testing%d okay%cmoremore\n", -10, 'c');
+	printf("testing%d okay%cmoremore\n", -10, 'c');
+	ft_printf("testing%i okay\n", -10);
+	printf("testing%d okay\n", -10);
+
+	return (0);
 }
