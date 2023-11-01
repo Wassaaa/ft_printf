@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:57:25 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/01 20:36:50 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/01 21:33:49 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,22 @@ size_t	count_digits(int n)
 {
 	size_t	digits;
 
-	if (n == 0)
-		return (1);
-	digits = 0;
+	digits = 1;
+	n /= 10;
+	while (n != 0)
+	{
+		n /= 10;
+		digits++;
+	}
+	return (digits);
+}
+
+size_t	count_digits_ui(unsigned int n)
+{
+	size_t	digits;
+
+	digits = 1;
+	n /= 10;
 	while (n != 0)
 	{
 		n /= 10;
