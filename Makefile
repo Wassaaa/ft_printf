@@ -1,6 +1,6 @@
 NAME = libftprintf.a
 
-SRCS =	prf_printf.c \
+SRCS =	ft_printf.c \
 		ft_putnbr_base_ul_fd.c \
 		ft_putnbr_ul_fd.c \
 		prf_print_c.c \
@@ -48,7 +48,7 @@ bonus: .bonus
 .bonus: all $(B_OBJ)
 		cc -o $@ $^ $(LIBFT)
 		@touch .bonus
-		
+
 clean:
 		rm -f $(OBJECTS) $(B_OBJ)
 		make -C libft clean
