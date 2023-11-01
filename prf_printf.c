@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:25:19 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/01 21:36:46 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/01 21:55:56 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,30 +69,30 @@ int	ft_printf(const char *frm, ...)
 	return (print.printed);
 }
 
-#include <stdio.h>
-#include <limits.h>
+// #include <stdio.h>
+// #include <limits.h>
 
-int	main(void)
-{
-	int my_int;
+// int	main(void)
+// {
+// 	int my_int;
 
-	my_int = 55;
-	int ft1 = ft_printf("%%testing%d okay%cmore%smore\n", -10, 'c', " tests ");
-	int std1 = printf("%%testing%d okay%cmore%smore\n", -10, 'c', " tests ");
-	int ft2 = ft_printf("testing %p okay\n", &my_int);
-	int std2 = printf("testing %p okay\n", &my_int);
-	int ft3 = ft_printf("testing %u okay\n", UINT_MAX);
-	int std3 = printf("testing %u okay\n", UINT_MAX);
-	int ft4 = ft_printf("testing %u okay\n", INT_MIN);
-	int std4 = printf("testing %u okay\n", INT_MIN);
-	int ft5 = ft_printf("testing %x okay\n", UINT_MAX);
-	int std5 = printf("testing %x okay\n", UINT_MAX);
-	int ft6 = ft_printf("testing %x okay\n", 10);
-	int std6 = printf("testing %x okay\n", 10);
-	int ft7 = ft_printf("testing %X okay\n", -5558876);
-	int std7 = printf("testing %X okay\n", -5558876);
+// 	my_int = 55;
+// 	int ft1 = ft_printf("%%testing%d okay%cmore%smore\n", -10, 'c', " tests ");
+// 	int std1 = printf("%%testing%d okay%cmore%smore\n", -10, 'c', " tests ");
+// 	int ft2 = ft_printf("testing %p okay\n", &my_int);
+// 	int std2 = printf("testing %p okay\n", &my_int);
+// 	int ft3 = ft_printf("testing %u okay\n", UINT_MAX);
+// 	int std3 = printf("testing %u okay\n", UINT_MAX);
+// 	int ft4 = ft_printf("testing %u okay\n", INT_MIN);
+// 	int std4 = printf("testing %u okay\n", INT_MIN);
+// 	int ft5 = ft_printf("testing %x okay\n", UINT_MAX);
+// 	int std5 = printf("testing %x okay\n", UINT_MAX);
+// 	int ft6 = ft_printf("testing %x okay\n", 10);
+// 	int std6 = printf("testing %x okay\n", 10);
+// 	int ft7 = ft_printf("testing %X okay\n", -5558876);
+// 	int std7 = printf("testing %X okay\n", -5558876);
 
-	printf("%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n", ft1, std1, ft2, std2, ft3, std3, ft4, std4, ft5, std5, ft6, std6, ft7, std7);
+// 	printf("%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n", ft1, std1, ft2, std2, ft3, std3, ft4, std4, ft5, std5, ft6, std6, ft7, std7);
 
-	return (0);
-}
+// 	return (0);
+// }
