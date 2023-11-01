@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 00:58:39 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/01 21:41:02 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/01 23:09:11 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_print
 
 }				t_print;
 
+int				ft_printf(const char *frm, ...);
 int				abs_val(int n);
 void			init_print(t_print *print);
 void			reset_print(t_print *print);
