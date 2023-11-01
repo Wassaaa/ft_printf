@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/29 16:17:19 by aklein            #+#    #+#              #
+#    Updated: 2023/11/01 17:21:51 by aklein           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 
 SRCS =	ft_isalpha.c \
@@ -53,17 +65,21 @@ CFLAGS += -Wall -Wextra -Werror
 
 all: $(NAME)
 
+bonus: .bonus
+
 $(NAME): $(OBJECTS)
 		ar -rcs $@ $^
 
-bonus: $(B_OBJ) $(OBJECTS)
+.bonus: $(B_OBJ) $(OBJECTS)
 		ar -rcs $(NAME) $^
+		@touch .bonus
 
 $./%.o: $./%.c
 		cc -I . -c $< -o $@
 
 clean:
 		rm -f $(OBJECTS) $(B_OBJ)
+		@rm -f .bonus
 
 fclean: clean
 		rm -f $(NAME)
