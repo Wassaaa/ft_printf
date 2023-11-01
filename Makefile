@@ -41,7 +41,7 @@ $(NAME): $(OBJECTS)
 		ar -rcs $@ $^
 
 $./%.o: $./%.c
-		cc -I . -c $< -o $@
+		cc -I . -c $< $(LIBFT) -o $@
 
 bonus: .bonus
 
