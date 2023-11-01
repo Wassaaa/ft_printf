@@ -38,17 +38,17 @@ libftall:
 	make -C libft
 
 $(NAME): $(OBJECTS)
-		cc -o $@ $^ $(LIBFT)
+		ar -rcs $@ $^
+
+$./%.o: $./%.c
+		cc -I . -c $< -o $@
 
 bonus: .bonus
 
 .bonus: all $(B_OBJ)
 		cc -o $@ $^ $(LIBFT)
 		@touch .bonus
-
-$./%.o: $./%.c
-		cc -I . -c $< -o $@
-
+		
 clean:
 		rm -f $(OBJECTS) $(B_OBJ)
 		make -C libft clean
