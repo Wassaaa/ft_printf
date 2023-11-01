@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:25:19 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/30 19:31:01 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/01 19:51:49 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,8 @@ int	print_spec(t_print *print)
 		print_d(print);
 	if (print->spec == 'u')
 		print_u(print);
-	if (print->spec == 'x')
+	if (print->spec == 'x' || print->spec == 'X')
 		print_x(print);
-	if (print->spec == 'X')
-		print_xx(print);
 	if (print->spec == '%')
 	{
 		ft_putchar_fd('%', print->fd);
@@ -86,7 +84,7 @@ int	main(void)
 	int ft3 = ft_printf("testing %u okay\n", UINT_MAX);
 	int std3 = printf("testing %u okay\n", UINT_MAX);
 	int ft4 = ft_printf("testing %x okay\n", UINT_MAX);
-	int std4 = printf("testing %X okay\n", -200);
+	int std4 = printf("testing %x okay\n", UINT_MAX);
 
 	printf("%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n", ft1, std1, ft2, std2, ft3, std3, ft4, std4);
 

@@ -1,19 +1,18 @@
 NAME = libftprintf.a
 
 SRCS =	prf_printf.c \
+		ft_putnbr_base_ul_fd.c \
+		ft_putnbr_ul_fd.c \
 		prf_print_c.c \
 		prf_print_s.c \
 		prf_print_p.c \
 		prf_print_d.c \
 		prf_print_u.c \
 		prf_print_x.c \
-		prf_print_xx.c \
 		prf_parse_spec.c \
 		prf_init_print.c \
 		ft_abs.c \
 		count_digits.c \
-		ft_putnbr_base_ul_fd.c \
-		ft_putnbr_ul_fd.c \
 
 
 
@@ -41,8 +40,11 @@ libftall:
 $(NAME): $(OBJECTS)
 		cc -o $@ $^ $(LIBFT)
 
-bonus: all $(B_OBJ)
+bonus: .bonus
+
+.bonus: all $(B_OBJ)
 		cc -o $@ $^ $(LIBFT)
+		@touch .bonus
 
 $./%.o: $./%.c
 		cc -I . -c $< -o $@
@@ -50,6 +52,7 @@ $./%.o: $./%.c
 clean:
 		rm -f $(OBJECTS) $(B_OBJ)
 		make -C libft clean
+		@rm -f .bonus
 
 fclean: clean
 		rm -f $(NAME)

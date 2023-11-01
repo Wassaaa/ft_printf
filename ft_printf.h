@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 00:58:39 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/30 19:32:45 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/01 21:06:49 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,8 @@ int				print_p(t_print *print);
 int				print_d(t_print *print);
 int				print_u(t_print *print);
 int				print_x(t_print *print);
-int				print_xx(t_print *print);
-int				ft_putnbr_base_ul_fd(unsigned long nbr, char *base, int fd);
-int				ft_putnbr_ul_fd(unsigned long n, int fd);
-int				ft_putnbr_base_l_fd(long nbr, char *base, int fd);
+void			ft_putnbr_base_ul_fd(unsigned long nbr, char *base, int fd);
+void			ft_putnbr_ul_fd(unsigned long n, int fd);
+size_t			count_digits_hex(unsigned long nb);
 
 #endif
