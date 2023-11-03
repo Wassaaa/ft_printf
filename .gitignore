@@ -1,13 +1,8 @@
 *.o
 *.dSYM/
-tmp/
 a.out
-*.swp
 libft.a
 main.c
-main_b.c
 libft_tester/
 readme.md
 libftprintf.a
-libft/libft.h.gch
-.vscode/c_cpp_properties.json
