@@ -12,7 +12,6 @@ SRCS		=	ft_printf.c \
 				prf_print_x.c \
 				prf_parse_spec.c \
 				prf_init_print.c \
-				ft_abs.c \
 				count_digits.c \
 
 OBJECTS		=	$(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
