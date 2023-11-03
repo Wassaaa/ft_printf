@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:51:49 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/03 19:16:17 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/03 20:02:17 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@ void	init_print(t_print *print)
 	print->printed = 0;
 	print->spec_i = 0;
 	print->spec = 0;
-	print->pad_c = ' ';
 }
 
 void	reset_print(t_print *print)
 {
 	print->spec_i = 0;
 	print->spec = 0;
-	print->pad_c = ' ';
 }

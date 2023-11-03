@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 00:58:39 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/03 19:41:59 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/03 20:30:43 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_print
 	const char	*frm;
 	va_list		ap;
 	char		spec;
-	char		pad_c;
 	int			printed;
 	int			fd;
 	int			spec_i;
