@@ -3,7 +3,7 @@
         {
             "type": "shell",
             "label": "runmake",
-            "command": "make",
+            "command": "make && gcc -g main.c libftprintf.a",
             "options": {
                 "cwd": "${workspaceFolder}"
             },

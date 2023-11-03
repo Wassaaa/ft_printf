@@ -8,7 +8,7 @@
 			"type": "lldb",
 			"request": "launch",
 			"name": "Launch make",
-			"program": "${workspaceFolder}/libftprintf.a",
+			"program": "${workspaceFolder}/a.out",
 			"args": [],
 			"cwd": "${workspaceFolder}",
 			"preLaunchTask": "runmake",
