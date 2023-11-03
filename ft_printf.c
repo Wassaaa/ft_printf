@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:25:19 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/01 23:09:29 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/03 19:14:06 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	print_next(t_print *print)
 	}
 	return (0);
 }
-// none of those should move the print->frm pointer
+
 int	print_spec(t_print *print)
 {
 	if (print->spec == 'c')

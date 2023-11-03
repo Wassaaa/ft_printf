@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:57:25 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/01 21:33:49 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/03 19:17:45 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ size_t	count_digits_ui(unsigned int n)
 
 size_t	count_digits_hex(unsigned long nb)
 {
-	size_t digits;
+	size_t	digits;
 
 	digits = 1;
 	nb /= 16;

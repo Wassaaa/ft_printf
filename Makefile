@@ -21,7 +21,7 @@ B_OBJ		=	$(addprefix $(OBJ_DIR)/, $(B_SRCS:%.c=%.o))
 
 CC			=	gcc
 
-CFLAGS		+=	-Wall -Wextra -Werror
+CFLAGS		+=	-Wall -Wextra -Werror -g
 
 IFLAGS		=	-I. -Ilibft
 

@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 02:17:04 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/01 20:56:06 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/03 19:17:15 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	print_p(t_print *print)
 {
-	unsigned long ptr;
+	unsigned long	ptr;
 
 	ptr = va_arg(print->ap, unsigned long);
 	ft_putstr_fd("0x", print->fd);

@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:27:37 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/30 02:38:06 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/03 19:16:55 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	print_d(t_print *print)
 {
-	int my_n;
-	int digit_count;
+	int	my_n;
+	int	digit_count;
 
 	my_n = va_arg(print->ap, int);
 	digit_count = count_digits(my_n);

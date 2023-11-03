@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 02:16:47 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/03 17:52:40 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/03 19:17:24 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	print_s(t_print *print)
 {
-	char *my_str;
+	char	*my_str;
 
 	my_str = va_arg(print->ap, char *);
 	if (!my_str)
