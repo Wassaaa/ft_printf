@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:25:19 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/03 19:14:06 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/07 02:07:53 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	ft_printf(const char *frm, ...)
 			reset_print(&print);
 			continue ;
 		}
+		return (-1);
 	}
 	va_end(print.ap);
 	return (print.printed);
