@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 00:58:39 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/03 20:37:21 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/07 02:33:29 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdarg.h>
 
 # define SPECS "cspdiuxX%"
-# define FLAGS "+ #0*-."
 # define HEXBASELOWER "0123456789abcdef"
 # define HEXBASEUPPER "0123456789ABCDEF"
 
@@ -29,7 +28,6 @@ typedef struct s_print
 	int			printed;
 	int			fd;
 	int			spec_i;
-
 }				t_print;
 
 int				ft_printf(const char *frm, ...);
