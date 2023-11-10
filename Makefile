@@ -1,4 +1,5 @@
 NAME		=	libftprintf.a
+
 OBJ_DIR		=	obj
 
 SRCS		=	ft_printf.c \
@@ -16,7 +17,7 @@ SRCS		=	ft_printf.c \
 
 OBJECTS		=	$(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
-B_OBJ		=	$(addprefix $(OBJ_DIR)/, $(B_SRCS:%.c=%.o))
+B_OBJ		=	$(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%_bonus.o))
 
 CC			=	gcc
 
@@ -28,15 +29,17 @@ LIBFT_NAME	=	./libft/libft.a
 
 LIBFT_DIR	=	./libft
 
+bonus : all $(B_OBJ)
+
 all: $(LIBFT_NAME) $(NAME)
 
 $(LIBFT_NAME):
 					make -C $(LIBFT_DIR)
 
-$(NAME): $(OBJECTS)
+$(NAME): $(B_OBJ)
 					cp $(LIBFT_DIR)/libft.a .
 					mv libft.a $(NAME)
-					ar rcs $(NAME) $(OBJECTS)
+					ar rcs $(NAME) $(B_OBJ)
 
 $(OBJ_DIR)/%.o: %.c
 					mkdir -p $(@D)
