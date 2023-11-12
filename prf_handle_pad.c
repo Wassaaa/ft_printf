@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 02:13:41 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/12 03:01:54 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/12 17:35:31 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void handle_pad(t_print *print, t_flags *flags)
 {
-    while (--flags->width > 0)
+    while (flags->width > flags->digits)
     {
         ft_putchar_fd(flags->pad_c, print->fd);
         print->printed++;
+        flags->width--;
     }
 }

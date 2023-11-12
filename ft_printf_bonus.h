@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 00:58:39 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/12 02:43:10 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/12 17:34:01 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,13 @@ typedef struct s_print
 typedef struct s_flags
 {
 	int			plus_sign;
+	char		sign;
 	int			justify;
 	int			space_sign;
 	int			hashtag;
 	int			width;
 	int			perc;
+	int			digits;
 	char		pad_c;
 }				t_flags;
 

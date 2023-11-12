@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:51:49 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/10 19:17:09 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/12 17:34:17 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	init_print(t_print *print, t_flags *flags)
 	flags->space_sign = 0;
 	flags->width = 0;
 	flags->perc = 0;
+	flags->sign = 0;
+	flags->digits = 0;
 
 }
 
@@ -39,4 +41,6 @@ void	reset_print(t_print *print, t_flags *flags)
 	flags->space_sign = 0;
 	flags->width = 0;
 	flags->perc = 0;
+	flags->sign = 0;
+	flags->digits = 0;
 }
