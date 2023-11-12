@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prf_print_c_bonus.c                                :+:      :+:    :+:   */
+/*   prf_handle_pad.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aklein <aklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 02:15:09 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/12 02:20:06 by aklein           ###   ########.fr       */
+/*   Created: 2023/11/12 02:13:41 by aklein            #+#    #+#             */
+/*   Updated: 2023/11/12 03:01:54 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-
-
-int	print_c(t_print *print, t_flags *flags)
+void handle_pad(t_print *print, t_flags *flags)
 {
-	char	mychar;
-
-	flags->pad_c = ' ';
-	mychar = (char)va_arg(print->ap, int);
-	if (!flags->justify)
-	{
-		handle_pad(print, flags);
-		ft_putchar_fd(mychar, print->fd);
-		print->printed++;
-	}
-	else
-	{
-		ft_putchar_fd(mychar, print->fd);
-		print->printed++;
-		handle_pad(print, flags);
-	}
-	return (1);
+    while (--flags->width > 0)
+    {
+        ft_putchar_fd(flags->pad_c, print->fd);
+        print->printed++;
+    }
 }

@@ -15,9 +15,23 @@ SRCS		=	ft_printf.c \
 				prf_init_print.c \
 				count_digits.c \
 
+B_SRCS		=	ft_printf_bonus.c \
+				prf_init_print_bonus.c \
+				prf_parse_spec_bonus.c \
+				prf_print_c_bonus.c \
+				prf_print_d_bonus.c \
+				prf_print_p_bonus.c \
+				prf_print_s_bonus.c \
+				prf_print_u_bonus.c \
+				prf_print_x_bonus.c \
+				ft_putnbr_base_ul_fd.c \
+				ft_putnbr_ul_fd.c \
+				count_digits.c \
+				prf_handle_pad.c \
+
 OBJECTS		=	$(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
-B_OBJ		=	$(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%_bonus.o))
+B_OBJ		=	$(addprefix $(OBJ_DIR)/, $(B_SRCS:%.c=%.o))
 
 CC			=	gcc
 
@@ -29,7 +43,7 @@ LIBFT_NAME	=	./libft/libft.a
 
 LIBFT_DIR	=	./libft
 
-bonus : all $(B_OBJ)
+bonus : $(LIBFT_NAME) $(NAME)
 
 all: $(LIBFT_NAME) $(NAME)
 

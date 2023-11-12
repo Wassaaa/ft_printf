@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:25:19 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/10 19:17:09 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/12 04:10:34 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ int	print_next(t_print *print)
 	return (0);
 }
 
-int	print_spec(t_print *print)
+int	print_spec(t_print *print, t_flags *flags)
 {
 	if (print->spec == 'c')
-		print_c(print);
+		print_c(print, flags);
 	if (print->spec == 's')
 		print_s(print);
 	if (print->spec == 'p')
 		print_p(print);
 	if (print->spec == 'd' || print->spec == 'i')
-		print_d(print);
+		print_d(print, flags);
 	if (print->spec == 'u')
 		print_u(print);
 	if (print->spec == 'x' || print->spec == 'X')
@@ -49,20 +49,24 @@ int	print_spec(t_print *print)
 int	ft_printf(const char *frm, ...)
 {
 	t_print	print;
+	t_flags flags;
 
 	print.frm = frm;
-	init_print(&print);
+	init_print(&print, &flags);
 	va_start(print.ap, frm);
-	while (*print.frm)
+	while ((char)*print.frm)
 	{
 		if (print_next(&print))
 			continue ;
 		if (parse_spec(&print))
 		{
-			print.frm += print.spec_i + 1;
-			print_spec(&print);
-			reset_print(&print);
-			continue ;
+			if (parse_flags(&print, &flags))
+			{
+				print.frm += print.spec_i + 1;
+				print_spec(&print, &flags);
+				reset_print(&print, &flags);
+				continue ;
+			}
 		}
 		return (-1);
 	}

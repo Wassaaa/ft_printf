@@ -12,16 +12,31 @@
 
 #include "ft_printf_bonus.h"
 
-void	init_print(t_print *print)
+void	init_print(t_print *print, t_flags *flags)
 {
 	print->fd = 1;
 	print->printed = 0;
 	print->spec_i = 0;
 	print->spec = 0;
+	flags->hashtag = 0;
+	flags->justify = 0;
+	flags->pad_c = ' ';
+	flags->plus_sign = 0;
+	flags->space_sign = 0;
+	flags->width = 0;
+	flags->perc = 0;
+
 }
 
-void	reset_print(t_print *print)
+void	reset_print(t_print *print, t_flags *flags)
 {
 	print->spec_i = 0;
 	print->spec = 0;
+	flags->hashtag = 0;
+	flags->justify = 0;
+	flags->pad_c = ' ';
+	flags->plus_sign = 0;
+	flags->space_sign = 0;
+	flags->width = 0;
+	flags->perc = 0;
 }
