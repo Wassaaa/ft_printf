@@ -1,8 +1,7 @@
 *.o
 *.dSYM/
 a.out
-libft.a
-main.c
+libft.a 
 libft_tester/
 readme.md
 libftprintf.a
