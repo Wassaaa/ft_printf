@@ -18,9 +18,9 @@ OBJECTS		=	$(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
 B_OBJ		=	$(addprefix $(OBJ_DIR)/, $(B_SRCS:%.c=%.o))
 
-CC			=	gcc
+CC			=	clang
 
-CFLAGS		+=	-Wall -Wextra -Werror -g
+CFLAGS		+=	-Wall -Wextra -Werror
 
 IFLAGS		=	-I. -Ilibft
 
