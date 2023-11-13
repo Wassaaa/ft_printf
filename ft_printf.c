@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:25:19 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/13 18:13:39 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/13 19:20:14 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_printf(const char *frm, ...)
 	print.frm = frm;
 	init_print(&print);
 	va_start(print.ap, frm);
-	while ((char)*print.frm)
+	while (*print.frm)
 	{
 		if (print_next(&print))
 			continue ;
