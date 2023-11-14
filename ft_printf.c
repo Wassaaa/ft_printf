@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:25:19 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/14 20:35:18 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/14 21:26:31 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,26 @@ int	print_next(t_print *print)
 int	print_spec(t_print *print)
 {
 	if (print->spec == 'c')
-		print_c(print);
+		return (print_c(print));
 	else if (print->spec == 's')
-		print_s(print);
+		return (print_s(print));
 	else if (print->spec == 'p')
-		print_p(print);
+		return (print_p(print));
 	else if (print->spec == 'd' || print->spec == 'i')
-		print_d(print);
+		return (print_d(print));
 	else if (print->spec == 'u')
-		print_u(print);
+		return (print_u(print));
 	else if (print->spec == 'x' || print->spec == 'X')
-		print_x(print);
+		return (print_x(print));
 	else if (print->spec == '%')
 	{
-		ft_safe_putchar_fd('%', print->fd);
+		if (!ft_safe_putchar_fd('%', print->fd))
+			return (0);
 		print->printed++;
+		return (1);
 	}
 	else
-		return (-1);
-	return (1);
+		return (0);
 }
 
 int	ft_printf(const char *frm, ...)
@@ -71,7 +72,6 @@ int	ft_printf(const char *frm, ...)
 				continue ;
 			}
 		}
-		return (-1);
 	}
 	va_end(print.ap);
 	return (print.printed);

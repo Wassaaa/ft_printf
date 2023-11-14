@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_safe_putnbr_fd.c                                :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 20:10:06 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/14 20:54:14 by aklein           ###   ########.fr       */
+/*   Created: 2023/10/25 15:31:12 by aklein            #+#    #+#             */
+/*   Updated: 2023/10/27 19:00:52 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_safe_putnbr_fd(int n, int fd)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	long int	nb;
+	unsigned char	*c_s1;
+	unsigned char	*c_s2;
 
-	nb = n;
-	if (nb < 0)
+	c_s1 = (unsigned char *)s1;
+	c_s2 = (unsigned char *)s2;
+	while (n--)
 	{
-		if (!ft_safe_putchar_fd('-', fd))
-			return (0);
-		nb *= -1;
+		if (*c_s1 != *c_s2)
+			return ((int)*c_s1 - (int)*c_s2);
+		c_s1++;
+		c_s2++;
 	}
-	if (nb > 9)
-	{
-		if (!ft_safe_putnbr_fd(nb / 10, fd))
-			return (0);
-		if (!ft_safe_putchar_fd(nb % 10 + '0', fd))
-			return (0);
-	}
-	else
-		if (!ft_safe_putchar_fd(nb + '0', fd))
-			return (0);
-	return (1);
+	return (0);
 }

@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_safe_putnbr_fd.c                                :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 20:10:06 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/14 20:54:14 by aklein           ###   ########.fr       */
+/*   Created: 2023/10/25 15:58:45 by aklein            #+#    #+#             */
+/*   Updated: 2023/10/27 16:57:02 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_safe_putnbr_fd(int n, int fd)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	long int	nb;
+	char	*new_str;
+	size_t	i;
 
-	nb = n;
-	if (nb < 0)
+	if (!s)
+		return (NULL);
+	if (start >= ft_strlen(s))
+		len = 0;
+	if (len >= ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
+	new_str = malloc(len + 1);
+	if (!new_str)
+		return (NULL);
+	i = 0;
+	while (i < len)
 	{
-		if (!ft_safe_putchar_fd('-', fd))
-			return (0);
-		nb *= -1;
+		new_str[i] = s[start];
+		i++;
+		start++;
 	}
-	if (nb > 9)
-	{
-		if (!ft_safe_putnbr_fd(nb / 10, fd))
-			return (0);
-		if (!ft_safe_putchar_fd(nb % 10 + '0', fd))
-			return (0);
-	}
-	else
-		if (!ft_safe_putchar_fd(nb + '0', fd))
-			return (0);
-	return (1);
+	new_str[i] = '\0';
+	return (new_str);
 }

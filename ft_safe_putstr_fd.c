@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 20:07:09 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/14 20:41:13 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/14 21:04:58 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 int	ft_safe_putstr_fd(char *s, int fd)
 {
-	if (s && fd)
+	if (!s || !fd)
+		return (0);
 	while (*s)
 	{
 		if (!write(fd, s, 1))
 			return (0);
 		s++;
 	}
-	return (1);
+return (1);
 }

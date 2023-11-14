@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 00:58:39 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/14 20:38:18 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/14 21:03:21 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "libft/libft.h"
 
 # define SPECS "cspdiuxX%"
 # define HEXBASELOWER "0123456789abcdef"
@@ -44,7 +45,8 @@ int				print_p(t_print *print);
 int				print_d(t_print *print);
 int				print_u(t_print *print);
 int				print_x(t_print *print);
-int				ft_safe_putnbr_base_ul_fd(unsigned long nbr, char *base, int fd);
+int				ft_safe_putnbr_base_ul_fd(unsigned long nbr, \
+				char *base, int fd);
 int				ft_safe_putnbr_ul_fd(unsigned long n, int fd);
 int				ft_safe_putnbr_fd(int n, int fd);
 int				ft_safe_putchar_fd(char c, int fd);

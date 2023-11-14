@@ -18,7 +18,7 @@ int	ft_safe_putnbr_ul_fd(unsigned long n, int fd)
 	{
 		if (!ft_safe_putnbr_ul_fd(n / 10, fd))
 			return (0);
-		if (ft_safe_putchar_fd(n % 10 + '0', fd))
+		if (!ft_safe_putchar_fd(n % 10 + '0', fd))
 			return (0);
 	}
 	else
@@ -26,4 +26,5 @@ int	ft_safe_putnbr_ul_fd(unsigned long n, int fd)
 		if (!ft_safe_putchar_fd(n + '0', fd))
 			return (0);
 	}
+	return (1);
 }

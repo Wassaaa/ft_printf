@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_safe_putnbr_fd.c                                :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 20:10:06 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/14 20:54:14 by aklein           ###   ########.fr       */
+/*   Created: 2023/10/25 15:53:08 by aklein            #+#    #+#             */
+/*   Updated: 2023/10/25 19:48:27 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_safe_putnbr_fd(int n, int fd)
+char	*ft_strdup(const char *s1)
 {
-	long int	nb;
+	char	*dup;
+	size_t	i;
 
-	nb = n;
-	if (nb < 0)
+	i = 0;
+	dup = (char *)malloc(ft_strlen(s1) + 1);
+	if (!dup)
+		return (NULL);
+	while (s1[i])
 	{
-		if (!ft_safe_putchar_fd('-', fd))
-			return (0);
-		nb *= -1;
+		dup[i] = s1[i];
+		i++;
 	}
-	if (nb > 9)
-	{
-		if (!ft_safe_putnbr_fd(nb / 10, fd))
-			return (0);
-		if (!ft_safe_putchar_fd(nb % 10 + '0', fd))
-			return (0);
-	}
-	else
-		if (!ft_safe_putchar_fd(nb + '0', fd))
-			return (0);
-	return (1);
+	dup[i] = '\0';
+	return (dup);
 }

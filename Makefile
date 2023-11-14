@@ -2,8 +2,11 @@ NAME		=	libftprintf.a
 OBJ_DIR		=	obj
 
 SRCS		=	ft_printf.c \
-				ft_putnbr_base_ul_fd.c \
-				ft_putnbr_ul_fd.c \
+				ft_safe_putnbr_base_ul_fd.c \
+				ft_safe_putnbr_ul_fd.c \
+				ft_safe_putnbr_fd.c \
+				ft_safe_putchar_fd.c \
+				ft_safe_putstr_fd.c \
 				prf_print_c.c \
 				prf_print_s.c \
 				prf_print_p.c \

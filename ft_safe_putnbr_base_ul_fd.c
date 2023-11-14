@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 03:39:12 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/14 20:38:44 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/14 20:51:43 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	print_base(unsigned long nbr, size_t len, char *base, int fd)
 			return (0);
 	if (!ft_safe_putchar_fd(base[nbr % len], fd))
 		return (0);
+	return (1);
 }
 
 int	ft_safe_putnbr_base_ul_fd(unsigned long nbr, char *base, int fd)

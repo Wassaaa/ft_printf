@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_safe_putnbr_fd.c                                :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 20:10:06 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/14 20:54:14 by aklein           ###   ########.fr       */
+/*   Created: 2023/10/26 20:30:43 by aklein            #+#    #+#             */
+/*   Updated: 2023/10/26 20:32:58 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_safe_putnbr_fd(int n, int fd)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	long int	nb;
-
-	nb = n;
-	if (nb < 0)
+	if (!lst || !f)
+		return ;
+	while (lst)
 	{
-		if (!ft_safe_putchar_fd('-', fd))
-			return (0);
-		nb *= -1;
+		f(lst->content);
+		lst = lst->next;
 	}
-	if (nb > 9)
-	{
-		if (!ft_safe_putnbr_fd(nb / 10, fd))
-			return (0);
-		if (!ft_safe_putchar_fd(nb % 10 + '0', fd))
-			return (0);
-	}
-	else
-		if (!ft_safe_putchar_fd(nb + '0', fd))
-			return (0);
-	return (1);
 }

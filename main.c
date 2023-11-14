@@ -102,6 +102,7 @@ int test_noarg(void *str)
 int	main()
 {
 		test_noarg(NULL);
+		printf("% koolio");
 		//c format
 		printf("-------- c FORMAT--------\n");
 		test_single("%c\n", 'x');
