@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prf_print_d.c                                      :+:      :+:    :+:   */
+/*   prf_print_u_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: aklein <aklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 01:27:37 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/03 19:16:55 by aklein           ###   ########.fr       */
+/*   Created: 2023/10/30 02:19:06 by aklein            #+#    #+#             */
+/*   Updated: 2023/11/10 19:17:09 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-int	print_d(t_print *print)
+int	print_u(t_print *print)
 {
-	int	my_n;
-	int	digit_count;
+	unsigned long	nbr;
 
-	my_n = va_arg(print->ap, int);
-	digit_count = count_digits(my_n);
-	if (my_n < 0)
-		digit_count++;
-	ft_putnbr_fd(my_n, print->fd);
-	print->printed += digit_count;
+	nbr = va_arg(print->ap, unsigned int);
+	print->printed += count_digits_ui(nbr);
+	ft_putnbr_ul_fd(nbr, print->fd);
 	return (1);
 }

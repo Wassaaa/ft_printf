@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prf_print_s.c                                      :+:      :+:    :+:   */
+/*   prf_print_p_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 02:16:47 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/03 19:17:24 by aklein           ###   ########.fr       */
+/*   Created: 2023/10/30 02:17:04 by aklein            #+#    #+#             */
+/*   Updated: 2023/11/14 16:26:14 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-int	print_s(t_print *print)
+int	print_p(t_print *print)
 {
-	char	*my_str;
+	unsigned long	ptr;
 
-	my_str = va_arg(print->ap, char *);
-	if (!my_str)
+	ptr = va_arg(print->ap, unsigned long);
+	if (!ptr)
 	{
-		ft_putstr_fd("(null)", print->fd);
-		print->printed += 6;
+		ft_putstr_fd("(nil)", print->fd);
+		print->printed += 5;
 		return (1);
 	}
-	ft_putstr_fd(my_str, print->fd);
-	print->printed += ft_strlen(my_str);
+	ft_putstr_fd("0x", print->fd);
+	print->printed += 2;
+	print->printed += count_digits_hex(ptr);
+	ft_putnbr_base_ul_fd(ptr, HEXBASELOWER, print->fd);
 	return (1);
 }
