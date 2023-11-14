@@ -21,7 +21,7 @@ OBJECTS		=	$(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
 CC			=	clang
 
-CFLAGS		+=	-Wall -Wextra -Werror
+CFLAGS		+=	-Wall -Wextra -Werror -g
 
 IFLAGS		=	-I. -Ilibft
 

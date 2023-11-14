@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:25:19 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/14 21:26:31 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/14 21:59:33 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,21 @@ int	ft_printf(const char *frm, ...)
 	va_start(print.ap, frm);
 	while (*print.frm)
 	{
-		if (print_next(&print))
-			continue ;
-		if (parse_spec(&print))
+		if (*print.frm != '%')
 		{
-			print.frm += print.spec_i + 1;
-			if (print_spec(&print))
-			{
-				reset_print(&print);
-				continue ;
-			}
+			if (!ft_safe_putchar_fd(*print.frm, print.fd))
+				return (-1);
+			print.frm++;
+			print.printed++;
+		}
+		else if (!parse_spec(&print))
+			return (-1);
+		else if (!print_spec(&print))
+			return (-1);
+		else
+		{
+			reset_print(&print);
+			continue ;
 		}
 	}
 	va_end(print.ap);

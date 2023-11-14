@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:51:49 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/03 20:02:17 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/14 22:08:33 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void	reset_print(t_print *print)
 {
 	print->spec_i = 0;
 	print->spec = 0;
+	print->frm++;
 }
