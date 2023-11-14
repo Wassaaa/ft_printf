@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:25:19 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/13 19:20:14 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/14 20:35:18 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int	print_next(t_print *print)
 {
 	if (*print->frm != '%')
 	{
-		ft_putchar_fd(*print->frm, print->fd);
+		if (!ft_safe_putchar_fd(*print->frm, print->fd))
+			return (0);
 		print->frm++;
 		print->printed++;
 		return (1);
@@ -28,21 +29,23 @@ int	print_spec(t_print *print)
 {
 	if (print->spec == 'c')
 		print_c(print);
-	if (print->spec == 's')
+	else if (print->spec == 's')
 		print_s(print);
-	if (print->spec == 'p')
+	else if (print->spec == 'p')
 		print_p(print);
-	if (print->spec == 'd' || print->spec == 'i')
+	else if (print->spec == 'd' || print->spec == 'i')
 		print_d(print);
-	if (print->spec == 'u')
+	else if (print->spec == 'u')
 		print_u(print);
-	if (print->spec == 'x' || print->spec == 'X')
+	else if (print->spec == 'x' || print->spec == 'X')
 		print_x(print);
-	if (print->spec == '%')
+	else if (print->spec == '%')
 	{
-		ft_putchar_fd('%', print->fd);
+		ft_safe_putchar_fd('%', print->fd);
 		print->printed++;
 	}
+	else
+		return (-1);
 	return (1);
 }
 
@@ -50,6 +53,8 @@ int	ft_printf(const char *frm, ...)
 {
 	t_print	print;
 
+	if (!frm)
+		return (-1);
 	print.frm = frm;
 	init_print(&print);
 	va_start(print.ap, frm);
@@ -60,9 +65,11 @@ int	ft_printf(const char *frm, ...)
 		if (parse_spec(&print))
 		{
 			print.frm += print.spec_i + 1;
-			print_spec(&print);
-			reset_print(&print);
-			continue ;
+			if (print_spec(&print))
+			{
+				reset_print(&print);
+				continue ;
+			}
 		}
 		return (-1);
 	}

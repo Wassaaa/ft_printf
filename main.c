@@ -87,12 +87,12 @@ int test_triple(char *str, int arg, int arg2, int arg3)
 	printf("\n");
 }
 
-int test_noarg(char *str)
+int test_noarg(void *str)
 {
 	int ft;
 	int std;
 
-	std = printf(str);
+	std = ft_printf(str);
 	ft = ft_printf(str);
 
 	printf("std: %d\nft %d\n", std, ft);
@@ -101,6 +101,7 @@ int test_noarg(char *str)
 
 int	main()
 {
+		test_noarg(NULL);
 		//c format
 		printf("-------- c FORMAT--------\n");
 		test_single("%c\n", 'x');
@@ -163,7 +164,7 @@ int	main()
 		test_single("%x\n", INT_MAX);
 		test_single("%x\n", INT_MIN);
 		test_single("dgs%xxx\n", 10);
-		
+
 		//X format
 		printf("-------- X FORMAT--------\n");
 		test_single("%X\n", NULL);

@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_safe_putstr_fd.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 15:13:31 by aklein            #+#    #+#             */
-/*   Updated: 2023/10/25 15:13:32 by aklein           ###   ########.fr       */
+/*   Created: 2023/11/14 20:07:09 by aklein            #+#    #+#             */
+/*   Updated: 2023/11/14 20:41:13 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_safe_putstr_fd(char *s, int fd)
 {
-	unsigned char	*temp_str;
-
-	temp_str = s;
-	while (n--)
-		*temp_str++ = '\0';
+	if (s && fd)
+	while (*s)
+	{
+		if (!write(fd, s, 1))
+			return (0);
+		s++;
+	}
+	return (1);
 }

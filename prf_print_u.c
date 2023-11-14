@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 02:19:06 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/03 19:17:30 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/14 20:17:02 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	print_u(t_print *print)
 
 	nbr = va_arg(print->ap, unsigned int);
 	print->printed += count_digits_ui(nbr);
-	ft_putnbr_ul_fd(nbr, print->fd);
+	if (!ft_safe_putnbr_ul_fd(nbr, print->fd))
+		return (0);
 	return (1);
 }

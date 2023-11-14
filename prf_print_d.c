@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 01:27:37 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/03 19:16:55 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/14 20:06:01 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	print_d(t_print *print)
 	digit_count = count_digits(my_n);
 	if (my_n < 0)
 		digit_count++;
-	ft_putnbr_fd(my_n, print->fd);
+	if (!ft_safe_putnbr_fd(my_n, print->fd))
+		return (0);
 	print->printed += digit_count;
 	return (1);
 }
