@@ -92,7 +92,7 @@ int test_noarg(void *str)
 	int ft;
 	int std;
 
-	std = ft_printf(str);
+	std = printf(str);
 	ft = ft_printf(str);
 
 	printf("std: %d\nft %d\n", std, ft);

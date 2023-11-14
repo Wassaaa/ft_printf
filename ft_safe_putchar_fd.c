@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 18:41:56 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/14 21:02:54 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/14 23:19:11 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_safe_putchar_fd(char c, int fd)
 {
-	if (!write(fd, &c, 1))
+	if (write(fd, &c, 1) < 0)
 		return (0);
 	return (1);
 }

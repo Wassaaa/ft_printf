@@ -6,24 +6,11 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:25:19 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/14 23:13:59 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/14 23:38:00 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	print_next(t_print *print)
-{
-	if (*print->frm != '%')
-	{
-		if (!ft_safe_putchar_fd(*print->frm, print->fd))
-			return (0);
-		print->frm++;
-		print->printed++;
-		return (1);
-	}
-	return (0);
-}
 
 int	print_spec(t_print *print)
 {
@@ -50,6 +37,16 @@ int	print_spec(t_print *print)
 		return (0);
 }
 
+int	handle_spec(t_print *print)
+{
+	if (!parse_spec(print))
+		return (0);
+	if (!print_spec(print))
+		return (0);
+	reset_print(print);
+	return (1);
+}
+
 int	ft_printf(const char *frm, ...)
 {
 	t_print	print;
@@ -68,12 +65,9 @@ int	ft_printf(const char *frm, ...)
 			print.frm++;
 			print.printed++;
 		}
-		else 
-			if (!parse_spec(&print))
+		else
+			if (!handle_spec(&print))
 				return (-1);
-			if (!print_spec(&print))
-				return (-1);
-			reset_print(&print);
 	}
 	va_end(print.ap);
 	return (print.printed);
