@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:25:19 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/14 21:59:33 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/14 23:13:59 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,12 @@ int	ft_printf(const char *frm, ...)
 			print.frm++;
 			print.printed++;
 		}
-		else if (!parse_spec(&print))
-			return (-1);
-		else if (!print_spec(&print))
-			return (-1);
-		else
-		{
+		else 
+			if (!parse_spec(&print))
+				return (-1);
+			if (!print_spec(&print))
+				return (-1);
 			reset_print(&print);
-			continue ;
-		}
 	}
 	va_end(print.ap);
 	return (print.printed);
