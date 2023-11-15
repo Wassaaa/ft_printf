@@ -6,7 +6,7 @@
 /*   By: aklein <aklein@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 20:07:09 by aklein            #+#    #+#             */
-/*   Updated: 2023/11/14 23:19:22 by aklein           ###   ########.fr       */
+/*   Updated: 2023/11/15 15:49:14 by aklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ int	ft_safe_putstr_fd(char *s, int fd)
 			return (0);
 		s++;
 	}
-return (1);
+	return (1);
 }

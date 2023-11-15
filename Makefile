@@ -1,4 +1,5 @@
 NAME		=	libftprintf.a
+
 OBJ_DIR		=	obj
 
 SRCS		=	ft_printf.c \
@@ -21,7 +22,7 @@ OBJECTS		=	$(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
 CC			=	clang
 
-CFLAGS		+=	-Wall -Wextra -Werror -g
+CFLAGS		+=	-Wall -Wextra -Werror
 
 IFLAGS		=	-I. -Ilibft
 
@@ -46,7 +47,6 @@ $(OBJ_DIR)/%.o: %.c
 clean:
 					rm -rf $(OBJ_DIR)
 					make clean -C $(LIBFT_DIR)
-					@rm -f .bonus
 
 fclean: clean
 					rm -f $(NAME)
@@ -54,4 +54,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all re clean fclean bonus
+.PHONY: all re clean fclean
